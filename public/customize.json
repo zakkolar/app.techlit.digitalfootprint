@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "preview_link": "https://digitalfootprint.techlit.app/activity/search",
+  "title": "Digital Footprint Investigation",
+  "fields": [
+    {
+      "label": "Math Teacher Name",
+      "key": "mathTeacher",
+      "type": "text",
+      "description": "Name to display alongside the math teacher's data."
+    },
+    {
+      "label": "Library Teacher Name",
+      "key": "libraryTeacher",
+      "type": "text",
+      "description": "Name to display alongside the library teacher's data."
+    }
+  ]
+}
