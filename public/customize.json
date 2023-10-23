@@ -7,13 +7,85 @@
       "label": "Math Teacher Name",
       "key": "mathTeacher",
       "type": "text",
-      "description": "Name to display alongside the math teacher's data."
+      "description": "Name to display alongside the math teacher's data.",
+      "default": "Math Teacher"
     },
     {
       "label": "Library Teacher Name",
       "key": "libraryTeacher",
       "type": "text",
-      "description": "Name to display alongside the library teacher's data."
+      "description": "Name to display alongside the library teacher's data.",
+      "default": "Library Teacher"
+    },
+    {
+      "label": "Drama Teacher Name",
+      "key": "dramaTeacher",
+      "type": "text",
+      "description": "Name to display alongside the drama teacher's data.",
+      "default": "Drama Teacher"
+    },
+    {
+      "label": "Music Teacher Name",
+      "key": "musicTeacher",
+      "type": "text",
+      "description": "Name to display alongside the music teacher's data.",
+      "default": "Music Teacher"
+    },
+    {
+      "label": "Culprit",
+      "key": "culprit",
+      "type": "select",
+      "options" : [
+        {
+          "musicTeacher": "Music Teacher",
+          "dramaTeacher": "Drama Teacher",
+          "mathTeacher": "Math Teacher",
+          "libraryTeacher": "Library Teacher"
+        }
+      ],
+      "description": "The teacher who sent the anonymous emails.",
+      "default": "dramaTeacher",
+      "validation": [
+        {
+          "type": "unique",
+          "fields": ["herring"]
+        }
+      ]
+    },
+    {
+      "label": "Decoy",
+      "key": "herring",
+      "type": "select",
+      "options" : [
+        {
+          "musicTeacher": "Music Teacher",
+          "dramaTeacher": "Drama Teacher",
+          "mathTeacher": "Math Teacher",
+          "libraryTeacher": "Library Teacher"
+        }
+      ],
+      "description": "The teacher who investigated the anonymous emails and initially appears to be the culprit.",
+      "default": "libraryTeacher",
+      "validation": [
+        {
+          "type": "unique",
+          "fields": ["culprit"]
+        }
+      ]
+    },
+    {
+      "label": "Anonymous Email Recipients",
+      "key": "anonymousEmailRecipients",
+      "type": "list",
+      "description": "List of email addresses the anonymous message is sent to. These will NOT receive actual emails; they will just display on the admin page under 'flagged messages'.",
+      "default": ["JohnSmith@education.com","JaneDoe@education.com"]
+    },
+    {
+      "label": "Culprit Display Name",
+      "key": "culpritDisplayName",
+      "type": "text",
+      "description": "The pseudonym for the culprit displayed as the 'from' on the messages under 'flagged messages'",
+      "default": "Anonymous Penguin"
     }
   ]
 }
