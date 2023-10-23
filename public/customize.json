@@ -35,14 +35,12 @@
       "label": "Culprit",
       "key": "culprit",
       "type": "select",
-      "options" : [
-        {
+      "options" : {
           "musicTeacher": "Music Teacher",
           "dramaTeacher": "Drama Teacher",
           "mathTeacher": "Math Teacher",
           "libraryTeacher": "Library Teacher"
-        }
-      ],
+      },
       "description": "The teacher who sent the anonymous emails.",
       "default": "dramaTeacher",
       "validation": [
@@ -56,14 +54,12 @@
       "label": "Decoy",
       "key": "herring",
       "type": "select",
-      "options" : [
-        {
+      "options" : {
           "musicTeacher": "Music Teacher",
           "dramaTeacher": "Drama Teacher",
           "mathTeacher": "Math Teacher",
           "libraryTeacher": "Library Teacher"
-        }
-      ],
+      },
       "description": "The teacher who investigated the anonymous emails and initially appears to be the culprit.",
       "default": "libraryTeacher",
       "validation": [
