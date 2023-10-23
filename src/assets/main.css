@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.linkText {
+    @apply text-blue-600 font-semibold;
+}
