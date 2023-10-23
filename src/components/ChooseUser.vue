@@ -10,7 +10,7 @@ const store = useActivityStore();
         <option></option>
         <option v-for="(user, key) of store.users" :value="key">{{user}}</option>
     </select>
-        <div v-if="!store.currentUser">Choose a user from the dropdown to start.</div>
+        <div v-if="!store.currentUser" class="mt-3">Choose a user from the dropdown to start.</div>
     </div>
 
 
