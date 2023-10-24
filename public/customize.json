@@ -43,6 +43,7 @@
       },
       "description": "The teacher who sent the anonymous emails.",
       "default": "dramaTeacher",
+      "required": true,
       "validation": [
         {
           "type": "unique",
@@ -74,7 +75,8 @@
       "key": "anonymousEmailRecipients",
       "type": "list",
       "description": "List of email addresses the anonymous message is sent to. These will NOT receive actual emails; they will just display on the admin page under 'flagged messages'.",
-      "default": ["JohnSmith@education.com","JaneDoe@education.com"]
+      "default": ["JohnSmith@education.com","JaneDoe@education.com"],
+      "rows": 5
     },
     {
       "label": "Culprit Display Name",
