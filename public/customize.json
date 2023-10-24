@@ -4,6 +4,12 @@
   "title": "Digital Footprint Investigation",
   "fields": [
     {
+      "label": "Start Date",
+      "key": "startDate",
+      "type": "date",
+      "description": "The date the anonymous emails start. All other logged activities are adjusted relative to this date."
+    },
+    {
       "label": "Math Teacher Name",
       "key": "mathTeacher",
       "type": "text",

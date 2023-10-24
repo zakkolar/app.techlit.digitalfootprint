@@ -6,7 +6,7 @@ import {ref} from "vue";
 
 const store = useActivityStore();
 
-const date = ref(CombineDateAndTime(store.startDate, AnonymousMessageTime, -1))
+const date = ref(CombineDateAndTime(store.startDate, AnonymousMessageTime, 0))
 
 const emailParagraphs = AnonymousMessage.split("\n").filter(item => !!item);
 

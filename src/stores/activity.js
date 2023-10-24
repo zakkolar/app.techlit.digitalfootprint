@@ -13,7 +13,9 @@ import {CombineDateAndTime} from "@/utils/CombineDateAndTime";
 import {DEFAULTS} from "@/data/Defaults";
 
 export const useActivityStore = defineStore('settings',()=>{
-    const startDate = ref(DateTime.fromObject({month: 10, day: 18, year: 2023}));
+
+    const startDate = ref(DateTime.fromObject({month: 10, day: 17, year: 2023}));
+
     const users = ref(structuredClone(USERS));
 
     users.value.MATH_TEACHER = DEFAULTS.MATH_TEACHER;

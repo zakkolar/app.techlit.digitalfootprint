@@ -20,28 +20,28 @@ export const Culprit = user => {
     const docSanitizedName = 'Lesson Plan';
     const docType = DriveDocument.DOC_TYPES.DOC;
     return [
-        new Search('how to spell anonamus', user, '9:24 AM', -1),
-        new Visit('Anonymous - Free Online Dictionary', {minutes: 1}, user, '9:25 AM', -1),
+        new Search('how to spell anonamus', user, '9:24 AM', 0),
+        new Visit('Anonymous - Free Online Dictionary', {minutes: 1}, user, '9:25 AM', 0),
 
         new Email('@CULPRIT', 'Anonymous Test',`
         Dear me,
-        I'm testing to see if I can send an anonymous email. I want to see if my name shows up on this message.`, user, "9:31 AM",-1),
+        I'm testing to see if I can send an anonymous email. I want to see if my name shows up on this message.`, user, "9:31 AM",0),
 
         new Email('@CULPRIT', 'Another Test',`
         Dear me,
-        The last one didn't work, but I'm trying again.`, user, "9:32 AM",-1),
+        The last one didn't work, but I'm trying again.`, user, "9:32 AM",0),
 
-        new DriveCreate(docEvilName, docType, user, "9:38 AM", -1),
+        new DriveCreate(docEvilName, docType, user, "9:38 AM", 0),
         new DriveAdd(`Anonymous email ideas:
-        ${AnonymousMessage}\n...`, docEvilName, docType, user, "9:39 AM", -1),
+        ${AnonymousMessage}\n...`, docEvilName, docType, user, "9:39 AM", 0),
 
 
 
-        new DriveRename(docSanitizedName, docEvilName, docType, user, "11:08 AM", -1),
+        new DriveRename(docSanitizedName, docEvilName, docType, user, "11:08 AM", 0),
 
-        new DriveDelete(docSanitizedName, docType, user, "11:12 AM", -1),
+        new DriveDelete(docSanitizedName, docType, user, "11:12 AM", 0),
 
-        new DriveEmpty(user, "11:13 AM", -1)
+        new DriveEmpty(user, "11:13 AM", 0)
 
     ]
 }

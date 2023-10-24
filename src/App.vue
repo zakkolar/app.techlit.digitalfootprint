@@ -5,6 +5,7 @@ import {onMounted} from "vue";
 import {getParam, hashToParams, PARAM_TYPES} from "@/utils/UrlParams";
 import {DEFAULTS} from "@/data/Defaults";
 import {USERS} from "@/classes/USERS";
+import {DateTime} from "luxon";
 
 const store = useActivityStore();
 
@@ -21,7 +22,9 @@ function updateSettingsFromHash() {
 
     const paramCache = (params, paramName, type, defaultValue) => {
         const value = getParam(params, paramName, type, localOrDefault(paramName, defaultValue));
-        localStorage.setItem(paramName, JSON.stringify(value));
+        if(value !== defaultValue) {
+            localStorage.setItem(paramName, JSON.stringify(value));
+        }
         return value;
     }
 
@@ -56,6 +59,12 @@ function updateSettingsFromHash() {
     store.users.LIBRARY_TEACHER = paramCache(params, 'libraryTeacher', PARAM_TYPES.STRING, DEFAULTS.LIBRARY_TEACHER);
 
     store.culpritDisplayName = paramCache(params,'culpritDisplayName', PARAM_TYPES.STRING, DEFAULTS.CULPRIT_DISPLAY_NAME);
+
+    const [year, month, day] = paramCache(params, 'startDate', PARAM_TYPES.DATE, DEFAULTS.START_DATE)
+        .split("-")
+        .map(item => parseInt(item));
+
+    store.startDate = DateTime.fromObject({year, month, day});
 
     store.anonymousEmailRecipients = paramCache(params, 'anonymousEmailRecipients', PARAM_TYPES.ARRAY, DEFAULTS.ANONYMOUS_EMAIL_RECIPIENTS);
 

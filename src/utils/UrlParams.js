@@ -16,7 +16,6 @@ export const getParam = function(params, paramName, type, defaultValue) {
                 param = parseInt(param);
                 break;
             case PARAM_TYPES.ARRAY:
-                console.log(decodeURIComponent(param));
                 param = decodeURIComponent(param).split(",");
                 break;
             default:
@@ -33,7 +32,8 @@ export const PARAM_TYPES  = Object.freeze({
     INTEGER: 'INTEGER',
     BOOLEAN: 'BOOLEAN',
     STRING: 'STRING',
-    ARRAY: 'ARRAY'
+    ARRAY: 'ARRAY',
+    DATE: 'DATE'
 })
 
 export const hashToParams = function() {
