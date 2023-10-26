@@ -7,7 +7,8 @@
       "label": "Start Date",
       "key": "startDate",
       "type": "date",
-      "description": "The date the anonymous emails start. All other logged activities are adjusted relative to this date."
+      "description": "The date the anonymous emails start. All other logged activities are adjusted relative to this date.",
+      "required" true
     },
     {
       "label": "Math Teacher Name",
