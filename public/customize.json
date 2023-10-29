@@ -2,6 +2,7 @@
   "version": "1.0",
   "preview_link": "https://digitalfootprint.techlit.app/activity/search",
   "title": "Digital Footprint Investigation",
+  "format": "queryString",
   "fields": [
     {
       "label": "Start Date",
