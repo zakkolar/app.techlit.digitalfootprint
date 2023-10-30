@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterLink, RouterView, useRoute} from 'vue-router'
 import {useActivityStore} from "@/stores/activity";
 import {onMounted} from "vue";
 import {getParam, hashToParams, PARAM_TYPES} from "@/utils/UrlParams";
@@ -22,7 +22,7 @@ function updateSettingsFromHash() {
 
     const paramCache = (params, paramName, type, defaultValue) => {
         const value = getParam(params, paramName, type, localOrDefault(paramName, defaultValue));
-        if(value !== defaultValue) {
+        if (value !== defaultValue) {
             localStorage.setItem(paramName, JSON.stringify(value));
         }
         return value;
@@ -37,18 +37,16 @@ function updateSettingsFromHash() {
     }
 
     const culpritKey = paramCache(params, 'culprit', 'string', DEFAULTS.CULPRIT);
-    if(Object.keys(userTranslations).includes(culpritKey)) {
+    if (Object.keys(userTranslations).includes(culpritKey)) {
         store.culprit = userTranslations[culpritKey];
-    }
-    else {
+    } else {
         store.culprit = DEFAULTS.CULPRIT;
     }
 
     const herringKey = paramCache(params, 'herring', 'string', DEFAULTS.HERRING);
-    if(Object.keys(userTranslations).includes(herringKey)) {
+    if (Object.keys(userTranslations).includes(herringKey)) {
         store.herring = userTranslations[herringKey];
-    }
-    else {
+    } else {
         store.herring = DEFAULTS.HERRING;
     }
 
@@ -58,7 +56,7 @@ function updateSettingsFromHash() {
     store.users.MUSIC_TEACHER = paramCache(params, 'musicTeacher', PARAM_TYPES.STRING, DEFAULTS.MUSIC_TEACHER);
     store.users.LIBRARY_TEACHER = paramCache(params, 'libraryTeacher', PARAM_TYPES.STRING, DEFAULTS.LIBRARY_TEACHER);
 
-    store.culpritDisplayName = paramCache(params,'culpritDisplayName', PARAM_TYPES.STRING, DEFAULTS.CULPRIT_DISPLAY_NAME);
+    store.culpritDisplayName = paramCache(params, 'culpritDisplayName', PARAM_TYPES.STRING, DEFAULTS.CULPRIT_DISPLAY_NAME);
 
     const [year, month, day] = paramCache(params, 'startDate', PARAM_TYPES.DATE, DEFAULTS.START_DATE)
         .split("-")
@@ -71,6 +69,15 @@ function updateSettingsFromHash() {
 
 }
 
+const links = {
+    'activity-search': 'Search and Web Activity',
+    'activity-drive': 'Drive Activity',
+    'activity-email': 'Email Activity',
+    'anonymous-email': 'Flagged Emails'
+}
+
+const route = useRoute();
+
 </script>
 
 <template>
@@ -81,12 +88,9 @@ function updateSettingsFromHash() {
                     Admin Dashboard
                 </span>
                 <ul class="ml-auto mr-8  items-center gap-6 flex">
-                    <li>
-                        <router-link :to="{name: 'activity-search'}">Search and Web Activity</router-link>
+                    <li v-for="(text, routeName) of links">
+                        <router-link class="pb-2" :to="{name: routeName}">{{ text }}</router-link>
                     </li>
-                    <li><router-link :to="{name: 'activity-drive'}">Drive Activity</router-link></li>
-                    <li><router-link :to="{name: 'activity-email'}">Email Activity</router-link></li>
-                    <li><router-link :to="{name: 'anonymous-email'}">Flagged Emails</router-link></li>
                 </ul>
             </div>
         </nav>
@@ -94,7 +98,7 @@ function updateSettingsFromHash() {
 
     <div class="">
 
-        <RouterView />
+        <RouterView/>
     </div>
 
 </template>
@@ -103,8 +107,13 @@ function updateSettingsFromHash() {
 nav li {
     @apply block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased;
 }
+
 nav a {
     @apply flex items-center;
+}
+
+.router-link-exact-active {
+    @apply border-b-2 border-blue-600
 }
 
 
