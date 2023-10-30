@@ -5,6 +5,11 @@
   "format": "queryString",
   "fields": [
     {
+      "key": "story",
+      "type": "hidden",
+      "default": "anonymousEmail"
+    },
+    {
       "label": "Start Date",
       "key": "startDate",
       "type": "date",
