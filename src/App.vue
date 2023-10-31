@@ -96,7 +96,7 @@ const route = useRoute();
         </nav>
     </header>
 
-    <div class="">
+    <div class="pa-4">
 
         <RouterView/>
     </div>
