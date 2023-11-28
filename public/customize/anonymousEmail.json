@@ -8,7 +8,7 @@
     {
       "key": "story",
       "type": "hidden",
-      "default": "anonymousEmail"
+      "default": "anonymous-email"
     },
     {
       "label": "Start Date",

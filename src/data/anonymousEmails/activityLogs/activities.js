@@ -1,22 +1,20 @@
-import {USERS} from "@/classes/USERS";
+import {USERS} from "@/data/anonymousEmails/USERS";
 import {Search} from "@/classes/activity/Search";
 import {Visit} from "@/classes/activity/Visit";
 import {DriveAdd} from "@/classes/activity/DriveAdd";
 import {DriveCreate} from "@/classes/activity/DriveCreate";
 import {DriveDocument} from "@/classes/activity/DriveDocument";
-import {DriveDelete} from "@/classes/activity/DriveDelete";
 import {DriveRemove} from "@/classes/activity/DriveRemove";
 import {DriveRename} from "@/classes/activity/DriveRename";
-import {DriveEmpty} from "@/classes/activity/DriveEmpty";
 import {Email} from "@/classes/activity/Email";
 
 
-export const Activities = [];
+export const AnonymousPenguinActivities = [];
 
 const DOC = DriveDocument.DOC_TYPES.DOC;
 
 // music teacher frog saga
-Activities.push(...[
+AnonymousPenguinActivities.push(...[
      new Search("frog eggs in basement", USERS.MUSIC_TEACHER, "6:30 AM", 0),
     new Visit("Frogs in your home? What to do next", {minutes: 10}, USERS.MUSIC_TEACHER, "6:31 AM",0),
 
@@ -49,7 +47,7 @@ Activities.push(...[
 ])
 
 // Drama teacher
-Activities.push(...[
+AnonymousPenguinActivities.push(...[
     new Search('Visit Broadway theater', USERS.DRAMA_TEACHER, '8:32 AM', 0),
     new Visit('Top 50 Broadway Shows', {minutes: 5}, USERS.DRAMA_TEACHER, "8:33 AM", 0),
     new DriveCreate('Shows I want to see', DriveDocument.DOC_TYPES.DOC, USERS.DRAMA_TEACHER, '8:38 AM', 0),
@@ -69,7 +67,7 @@ Chicago`, 'Shows I want to see', DriveDocument.DOC_TYPES.DOC, USERS.DRAMA_TEACHE
 const MATH = USERS.MATH_TEACHER;
 
 // Math teacher
-Activities.push(...[
+AnonymousPenguinActivities.push(...[
     new Search('coffee near me', MATH, "6:32 AM", 0),
     new Visit("Map - Dunkin' Donuts (closed)", {minutes: 1}, MATH, "6:33 AM", 0),
     new Search('open coffee shop near me', MATH, "6:34 AM", 0),
@@ -81,7 +79,7 @@ Activities.push(...[
 const LIBRARY = USERS.LIBRARY_TEACHER;
 
 // Library teacher
-Activities.push(...[
+AnonymousPenguinActivities.push(...[
     new Search("How to write a book ending", LIBRARY, "8:05 AM", 0),
     new Visit("Top 100 book endings", {minutes: 13}, LIBRARY, "8:06 AM", 0),
     new Search("Writer's block", LIBRARY, "8:18 AM", 0),

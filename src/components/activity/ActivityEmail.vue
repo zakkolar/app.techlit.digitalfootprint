@@ -2,7 +2,7 @@
 import {computed} from "vue";
 import {Activity} from "@/classes/activity/Activity";
 import ActivityBase from "@/components/activity/ActivityBase.vue";
-import {useActivityStore} from "@/stores/activity";
+import {useAnonymousEmailStore} from "@/stores/anonymousEmail";
 const props = defineProps({
     activity: {required: true}
 })
@@ -11,7 +11,7 @@ const paragraphs = computed(()=> {
     return props.activity.body.split('\n').filter(item => !!item);
 })
 
-const store = useActivityStore();
+const store = useAnonymousEmailStore();
 
 </script>
 <template>

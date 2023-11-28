@@ -1,13 +1,16 @@
 <script setup>
-import {RouterLink, RouterView, useRoute} from 'vue-router'
-import {useActivityStore} from "@/stores/activity";
+import {RouterLink, RouterView} from 'vue-router'
+import {useAnonymousEmailStore} from "@/stores/anonymousEmail";
 import {onMounted} from "vue";
-import {getParam, hashToParams, PARAM_TYPES} from "@/utils/UrlParams";
-import {DEFAULTS} from "@/data/Defaults";
-import {USERS} from "@/classes/USERS";
-import {DateTime} from "luxon";
+import {paramCache} from "@/utils/UrlParams";
+import {ANONYMOUS_EMAIL_DEFAULTS} from "@/data/anonymousEmails/DEFAULTS";
 
-const store = useActivityStore();
+import {STORIES} from "@/data/global/STORIES";
+import {useGlobalStore} from "@/stores/global";
+import {DEFAULTS} from "@/data/global/DEFAULTS";
+import {anonymousEmailSettingsFromHash} from "@/data/anonymousEmails/settingsFromHash";
+
+const global = useGlobalStore();
 
 onMounted(() => {
     window.addEventListener('hashchange', updateSettingsFromHash);
@@ -15,69 +18,22 @@ onMounted(() => {
 })
 
 function updateSettingsFromHash() {
-    const params = hashToParams();
 
+    const storyKey = paramCache('story', 'string', ANONYMOUS_EMAIL_DEFAULTS.STORY);
 
-    const localOrDefault = (key, defaultValue) => JSON.parse(localStorage.getItem(key)) || defaultValue;
-
-    const paramCache = (params, paramName, type, defaultValue) => {
-        const value = getParam(params, paramName, type, localOrDefault(paramName, defaultValue));
-        if (value !== defaultValue) {
-            localStorage.setItem(paramName, JSON.stringify(value));
-        }
-        return value;
-    }
-
-
-    const userTranslations = {
-        'mathTeacher': USERS.MATH_TEACHER,
-        'dramaTeacher': USERS.DRAMA_TEACHER,
-        'musicTeacher': USERS.MUSIC_TEACHER,
-        'libraryTeacher': USERS.LIBRARY_TEACHER
-    }
-
-    const culpritKey = paramCache(params, 'culprit', 'string', DEFAULTS.CULPRIT);
-    if (Object.keys(userTranslations).includes(culpritKey)) {
-        store.culprit = userTranslations[culpritKey];
+    if (Object.keys(STORIES).includes(storyKey)) {
+        global.story = storyKey;
     } else {
-        store.culprit = DEFAULTS.CULPRIT;
+        global.story = DEFAULTS.STORY;
     }
 
-    const herringKey = paramCache(params, 'herring', 'string', DEFAULTS.HERRING);
-    if (Object.keys(userTranslations).includes(herringKey)) {
-        store.herring = userTranslations[herringKey];
-    } else {
-        store.herring = DEFAULTS.HERRING;
+    switch(global.story) {
+        case STORIES.ANONYMOUS_EMAILS:
+            anonymousEmailSettingsFromHash();
+            break;
     }
-
-
-    store.users.MATH_TEACHER = paramCache(params, 'mathTeacher', PARAM_TYPES.STRING, DEFAULTS.MATH_TEACHER);
-    store.users.DRAMA_TEACHER = paramCache(params, 'dramaTeacher', PARAM_TYPES.STRING, DEFAULTS.DRAMA_TEACHER);
-    store.users.MUSIC_TEACHER = paramCache(params, 'musicTeacher', PARAM_TYPES.STRING, DEFAULTS.MUSIC_TEACHER);
-    store.users.LIBRARY_TEACHER = paramCache(params, 'libraryTeacher', PARAM_TYPES.STRING, DEFAULTS.LIBRARY_TEACHER);
-
-    store.culpritDisplayName = paramCache(params, 'culpritDisplayName', PARAM_TYPES.STRING, DEFAULTS.CULPRIT_DISPLAY_NAME);
-
-    const [year, month, day] = paramCache(params, 'startDate', PARAM_TYPES.DATE, DEFAULTS.START_DATE)
-        .split("-")
-        .map(item => parseInt(item));
-
-    store.startDate = DateTime.fromObject({year, month, day});
-
-    store.anonymousEmailRecipients = paramCache(params, 'anonymousEmailRecipients', PARAM_TYPES.ARRAY, DEFAULTS.ANONYMOUS_EMAIL_RECIPIENTS);
-
 
 }
-
-const links = {
-    'activity-search': 'Search and Web Activity',
-    'activity-drive': 'Drive Activity',
-    'activity-email': 'Email Activity',
-    'anonymous-email': 'Flagged Emails'
-}
-
-const route = useRoute();
-
 </script>
 
 <template>
@@ -87,20 +43,16 @@ const route = useRoute();
                 <span class="mr-4 block cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased">
                     Admin Dashboard
                 </span>
-                <ul class="ml-auto mr-8  items-center gap-6 flex">
-                    <li v-for="(text, routeName) of links">
-                        <router-link class="pb-2" :to="{name: routeName}">{{ text }}</router-link>
-                    </li>
-                </ul>
+                <div class="ml-auto mr-8  items-center gap-6 flex">
+                    <router-link v-for="(text, routeName) of global.links" class="pb-2" :to="{name: routeName}">{{ text }}</router-link>
+                </div>
             </div>
         </nav>
     </header>
 
     <div class="pa-4">
-
         <RouterView/>
     </div>
-
 </template>
 
 <style scoped>

@@ -1,16 +1,16 @@
 <script setup>
-import {useActivityStore} from "@/stores/activity";
+import {useGlobalStore} from "@/stores/global";
 
-const store = useActivityStore();
+const global = useGlobalStore();
 </script>
 <template>
     <div class="p-2">
         <span>Viewing data for user: </span>
-        <select v-model="store.currentUser" class="p-1">
+        <select v-model="global.currentUser" class="p-1">
         <option></option>
-        <option v-for="(user, key) of store.users" :value="key">{{user}}</option>
+        <option v-for="(user, key) of global.users" :value="key">{{user}}</option>
     </select>
-        <div v-if="!store.currentUser" class="mt-3">Choose a user from the dropdown to start.</div>
+        <div v-if="!global.currentUser" class="mt-3">Choose a user from the dropdown to start.</div>
     </div>
 
 

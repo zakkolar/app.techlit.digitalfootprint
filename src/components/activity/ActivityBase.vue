@@ -1,11 +1,11 @@
 <script setup>
-  import {useActivityStore} from "@/stores/activity";
+  import {useAnonymousEmailStore} from "@/stores/anonymousEmail";
 
   const props = defineProps({
       activity: {required: true}
   })
 
-  const store = useActivityStore();
+  const store = useAnonymousEmailStore();
 
 </script>
 <template>

@@ -1,10 +1,10 @@
 <script setup>
-import {useActivityStore} from "@/stores/activity";
-import {AnonymousMessage, AnonymousMessageSubject, AnonymousMessageTime} from "@/data/culprit";
+import {useAnonymousEmailStore} from "@/stores/anonymousEmail";
+import {AnonymousMessage, AnonymousMessageSubject, AnonymousMessageTime} from "@/data/anonymousEmails/activityLogs/culprit";
 import {CombineDateAndTime} from "@/utils/CombineDateAndTime";
 import {ref} from "vue";
 
-const store = useActivityStore();
+const store = useAnonymousEmailStore();
 
 const date = ref(CombineDateAndTime(store.startDate, AnonymousMessageTime, 0))
 
