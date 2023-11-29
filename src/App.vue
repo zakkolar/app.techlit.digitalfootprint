@@ -1,9 +1,7 @@
 <script setup>
 import {RouterLink, RouterView} from 'vue-router'
-import {useAnonymousEmailStore} from "@/stores/anonymousEmail";
 import {onMounted} from "vue";
 import {paramCache} from "@/utils/UrlParams";
-import {ANONYMOUS_EMAIL_DEFAULTS} from "@/data/anonymousEmails/DEFAULTS";
 
 import {STORIES} from "@/data/global/STORIES";
 import {useGlobalStore} from "@/stores/global";
@@ -19,7 +17,7 @@ onMounted(() => {
 
 function updateSettingsFromHash() {
 
-    const storyKey = paramCache('story', 'string', ANONYMOUS_EMAIL_DEFAULTS.STORY);
+    const storyKey = paramCache('story', 'string', DEFAULTS.STORY);
 
     if (Object.keys(STORIES).includes(storyKey)) {
         global.story = storyKey;
@@ -67,6 +65,4 @@ nav a {
 .router-link-exact-active {
     @apply border-b-2 border-blue-600
 }
-
-
 </style>
