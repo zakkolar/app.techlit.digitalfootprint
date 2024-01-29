@@ -15,4 +15,7 @@ const global = useGlobalStore();
             </div>
         </div>
     </div>
+  <div v-if="global.activityByDay.length === 0 && global.currentUser">
+      <p class="p-2 italic">No activity to show.</p>
+  </div>
 </template>
