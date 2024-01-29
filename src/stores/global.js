@@ -32,7 +32,7 @@ export const useGlobalStore = defineStore('global', () => {
         }
 
         if(story.value === STORIES.ANONYMOUS_EMAILS) {
-            links['anonymous-email'] = 'Flagged Emails';
+            links['anonymous-email'] = 'Suspicious Emails';
         }
 
         return links;

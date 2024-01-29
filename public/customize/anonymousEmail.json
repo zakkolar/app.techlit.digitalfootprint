@@ -88,7 +88,7 @@
       "label": "Anonymous Email Recipients",
       "key": "anonymousEmailRecipients",
       "type": "list",
-      "description": "List of email addresses the anonymous message is sent to. These will NOT receive actual emails; they will just display on the admin page under 'flagged messages'.",
+      "description": "List of email addresses the anonymous message is sent to. These will NOT receive actual emails; they will just display on the admin page under 'suspicious emails'.",
       "default": ["JohnSmith@education.com","JaneDoe@education.com"],
       "rows": 5
     },
@@ -96,7 +96,7 @@
       "label": "Culprit Display Name",
       "key": "culpritDisplayName",
       "type": "text",
-      "description": "The pseudonym for the culprit displayed as the 'from' on the messages under 'flagged messages'",
+      "description": "The pseudonym for the culprit displayed as the 'from' on the messages under 'suspicious emails'",
       "default": "Anonymous Penguin"
     }
   ]
