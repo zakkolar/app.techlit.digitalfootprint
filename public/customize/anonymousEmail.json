@@ -56,7 +56,7 @@
           "BOOK_TEACHER": "Book Teacher"
       },
       "description": "The teacher who sent the anonymous emails.",
-      "default": "dramaTeacher",
+      "default": "BROADWAY_TEACHER",
       "required": true,
       "validation": [
         {
