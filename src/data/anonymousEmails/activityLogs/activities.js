@@ -11,22 +11,20 @@ import {Email} from "@/classes/activity/Email";
 
 export const AnonymousPenguinActivities = [];
 
-const DOC = DriveDocument.DOC_TYPES.DOC;
-
-// music teacher frog saga
+// frog band saga
 AnonymousPenguinActivities.push(...[
-     new Search("frog eggs in basement", USERS.MUSIC_TEACHER, "6:30 AM", 0),
-    new Visit("Frogs in your home? What to do next", {minutes: 10}, USERS.MUSIC_TEACHER, "6:31 AM",0),
+     new Search("frog eggs in basement", USERS.FROG_TEACHER, "6:30 AM", 0),
+    new Visit("Frogs in your home? What to do next", {minutes: 10}, USERS.FROG_TEACHER, "6:31 AM",0),
 
-    new Search('take care of baby frogs', USERS.MUSIC_TEACHER, "7:48 AM", 0),
-    new Visit('Surprisingly expensive pets: Everything you need to know about frog care', {minutes: 5}, USERS.MUSIC_TEACHER, "7:49 AM", 0),
-    new Search('where can i sell 77 baby frogs', USERS.MUSIC_TEACHER, "7:54 AM", 0),
+    new Search('take care of baby frogs', USERS.FROG_TEACHER, "7:48 AM", 0),
+    new Visit('Surprisingly expensive pets: Everything you need to know about frog care', {minutes: 5}, USERS.FROG_TEACHER, "7:49 AM", 0),
+    new Search('where can i sell 77 baby frogs', USERS.FROG_TEACHER, "7:54 AM", 0),
 
-    new Search("Teach frogs to sing", USERS.MUSIC_TEACHER, "1:06 PM", 0),
+    new Search("Teach frogs to sing", USERS.FROG_TEACHER, "1:06 PM", 0),
 
-    new Search("Frog band names", USERS.MUSIC_TEACHER, "1:10 PM", 0),
+    new Search("Frog band names", USERS.FROG_TEACHER, "1:10 PM", 0),
 
-    new DriveCreate("Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.MUSIC_TEACHER, "1:05 PM", 0),
+    new DriveCreate("Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.FROG_TEACHER, "1:05 PM", 0),
 
     new DriveAdd(`Frog songs:
     Jumping on Sunshine
@@ -34,58 +32,54 @@ AnonymousPenguinActivities.push(...[
     I Want to Hold Your (Webbed) Hand
     Amphibian Rhapsody
     Frog Days Are Over
-    `, "Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.MUSIC_TEACHER, "1:10 PM", 0),
+    `, "Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.FROG_TEACHER, "1:10 PM", 0),
 
-    new DriveRename("Fall Out Frog", "Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.MUSIC_TEACHER, "1:12 PM", 0),
+    new DriveRename("Fall Out Frog", "Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.FROG_TEACHER, "1:12 PM", 0),
 
     new Email('Tiny Tailor', 'Frog costumes', `
     Hello,
-    I am looking to purchased some frog-sized costumes for a band I am starting. Would you be able to help?`, USERS.MUSIC_TEACHER, "1:15 PM", 0)
-
-
-
+    I am looking to purchased some frog-sized costumes for a band I am starting. Would you be able to help?`, USERS.FROG_TEACHER, "1:15 PM", 0)
 ])
 
-// Drama teacher
+// Broadway teacher
 AnonymousPenguinActivities.push(...[
-    new Search('Visit Broadway theater', USERS.DRAMA_TEACHER, '8:32 AM', 0),
-    new Visit('Top 50 Broadway Shows', {minutes: 5}, USERS.DRAMA_TEACHER, "8:33 AM", 0),
-    new DriveCreate('Shows I want to see', DriveDocument.DOC_TYPES.DOC, USERS.DRAMA_TEACHER, '8:38 AM', 0),
+    new Search('Visit Broadway theater', USERS.BROADWAY_TEACHER, '8:32 AM', 0),
+    new Visit('Top 50 Broadway Shows', {minutes: 5}, USERS.BROADWAY_TEACHER, "8:33 AM", 0),
+    new DriveCreate('Shows I want to see', DriveDocument.DOC_TYPES.DOC, USERS.BROADWAY_TEACHER, '8:38 AM', 0),
     new DriveAdd(`The Phantom of the Opera
 Hamilton
 Les Misérables
 Wicked
-Chicago`, 'Shows I want to see', DriveDocument.DOC_TYPES.DOC, USERS.DRAMA_TEACHER, '8:38 AM', 0),
-    new Search('Broadway Ticket Prices', USERS.DRAMA_TEACHER, '8:48 AM', 0),
-    new Visit('Broadway prices higher than ever', {minutes: 2}, USERS.DRAMA_TEACHER, '8:49 AM', 0),
-    new Search('convince your principal to pay for a Broadway field trip', USERS.DRAMA_TEACHER, '8:51 AM', 0),
+Chicago`, 'Shows I want to see', DriveDocument.DOC_TYPES.DOC, USERS.BROADWAY_TEACHER, '8:38 AM', 0),
+    new Search('Broadway Ticket Prices', USERS.BROADWAY_TEACHER, '8:48 AM', 0),
+    new Visit('Broadway prices higher than ever', {minutes: 2}, USERS.BROADWAY_TEACHER, '8:49 AM', 0),
+    new Search('convince your principal to pay for a Broadway field trip', USERS.BROADWAY_TEACHER, '8:51 AM', 0),
     new Email('Principal', 'Broadway field trip',`
     Hello,
-    I hope this email finds you well! I was wondering if we could take a field trip to see a Broadway show. I think this would be an excellent educational opportunity for my students. And myself.`,USERS.DRAMA_TEACHER, '8:58 AM', 0)
+    I hope this email finds you well! I was wondering if we could take a field trip to see a Broadway show. I think this would be an excellent educational opportunity for my students. And myself.`,USERS.BROADWAY_TEACHER, '8:58 AM', 0)
 ])
 
-const MATH = USERS.MATH_TEACHER;
-
-// Math teacher
+// Coffee teacher
 AnonymousPenguinActivities.push(...[
-    new Search('coffee near me', MATH, "6:32 AM", 0),
-    new Visit("Map - Dunkin' Donuts (closed)", {minutes: 1}, MATH, "6:33 AM", 0),
-    new Search('open coffee shop near me', MATH, "6:34 AM", 0),
-    new Visit("Map - Starbucks (closed)", {minutes: 1}, MATH, "6:35 AM", 0),
-    new Search("Ways to stay awake without coffee", MATH, "6:36 AM", 0),
-    new DriveCreate('Meeting notes', DOC, MATH, "1:32 PM", 0)
+    new Search('coffee near me', USERS.COFFEE_TEACHER, "6:32 AM", 0),
+    new Visit("Map - Dunkin' Donuts (closed)", {minutes: 1}, USERS.COFFEE_TEACHER, "6:33 AM", 0),
+    new Search('open coffee shop near me', USERS.COFFEE_TEACHER, "6:34 AM", 0),
+    new Visit("Map - Starbucks (closed)", {minutes: 1}, USERS.COFFEE_TEACHER, "6:35 AM", 0),
+    new Search("Ways to stay awake without coffee", USERS.COFFEE_TEACHER, "6:36 AM", 0),
+    new DriveCreate('Meeting notes', DriveDocument.DOC_TYPES.DOC, USERS.COFFEE_TEACHER, "1:32 PM", 0)
 ])
 
-const LIBRARY = USERS.LIBRARY_TEACHER;
-
-// Library teacher
+// Book teacher
 AnonymousPenguinActivities.push(...[
-    new Search("How to write a book ending", LIBRARY, "8:05 AM", 0),
-    new Visit("Top 100 book endings", {minutes: 13}, LIBRARY, "8:06 AM", 0),
-    new Search("Writer's block", LIBRARY, "8:18 AM", 0),
-    new Search("can I use someone else's ending for my book", LIBRARY, "8:19 AM", 0),
+    new Search("How to write a book ending", USERS.BOOK_TEACHER, "8:05 AM", 0),
+    new Visit("Top 100 book endings", {minutes: 13}, USERS.BOOK_TEACHER, "8:06 AM", 0),
+    new Search("Writer's block", USERS.BOOK_TEACHER, "8:18 AM", 0),
+    new Search("can I use someone else's ending for my book", USERS.BOOK_TEACHER, "8:19 AM", 0),
     new DriveAdd(`Chapter 23
-    She woke up to a bright, sunny morning`, 'My Book', DOC, LIBRARY, '8:33 AM', 0),
-    new DriveRemove(`bright, sunny morning`, 'My Book', DOC, LIBRARY, "8:34 AM", 0),
-    new DriveAdd(`dark, stormy night`, 'My Book', DOC, LIBRARY, '8:35 AM', 0),
+    She woke up to a bright, sunny morning`, 'My Book', DriveDocument.DOC_TYPES.DOC, USERS.BOOK_TEACHER, '8:33 AM', 0),
+    new DriveRemove(`bright, sunny morning`, 'My Book', DriveDocument.DOC_TYPES.DOC, USERS.BOOK_TEACHER, "8:34 AM", 0),
+    new DriveAdd(`dark, stormy night`, 'My Book', DriveDocument.DOC_TYPES.DOC, USERS.BOOK_TEACHER, '8:35 AM', 0),
+    new Email('Editor', 'Re: Your book is late',`
+    Hi Avery,
+    I know you wanted to read the ending last week. It's sooooo good and I just need to make a few more edits. I definitely wrote it already.`,USERS.BOOK_TEACHER, '8:46 AM', 0)
 ])

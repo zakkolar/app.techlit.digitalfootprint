@@ -18,42 +18,42 @@
       "required": true
     },
     {
-      "label": "Math Teacher Name",
-      "key": "MATH_TEACHER",
+      "label": "Coffee Teacher Name",
+      "key": "COFFEE_TEACHER",
       "type": "text",
-      "description": "Name to display alongside the math teacher's data.",
-      "default": "Math Teacher"
+      "description": "Name of the teacher whose digital footprint shows them searching for coffee to try to stay awake.",
+      "default": "Coffee Teacher"
     },
     {
-      "label": "Library Teacher Name",
-      "key": "LIBRARY_TEACHER",
+      "label": "Book Teacher Name",
+      "key": "BOOK_TEACHER",
       "type": "text",
-      "description": "Name to display alongside the library teacher's data.",
-      "default": "Library Teacher"
+      "description": "Name of the teacher whose digital footprint shows them getting writer's blog while trying to write a book.",
+      "default": "Book Teacher"
     },
     {
-      "label": "Drama Teacher Name",
-      "key": "DRAMA_TEACHER",
+      "label": "Broadway Teacher Name",
+      "key": "BROADWAY_TEACHER",
       "type": "text",
-      "description": "Name to display alongside the drama teacher's data.",
-      "default": "Drama Teacher"
+      "description": "Name of the teacher whose digital footprint shows them trying to arrange a Broadway field trip.",
+      "default": "Broadway Teacher"
     },
     {
-      "label": "Music Teacher Name",
-      "key": "MUSIC_TEACHER",
+      "label": "Frog Teacher Name",
+      "key": "FROG_TEACHER",
       "type": "text",
-      "description": "Name to display alongside the music teacher's data.",
-      "default": "Music Teacher"
+      "description": "Name of the teacher whose digital footprint shows them finding frog eggs in their basement and trying to start a frog band.",
+      "default": "Frog Teacher"
     },
     {
       "label": "Culprit",
       "key": "culprit",
       "type": "select",
       "options" : {
-          "MUSIC_TEACHER": "Music Teacher",
-          "DRAMA_TEACHER": "Drama Teacher",
-          "MATH_TEACHER": "Math Teacher",
-          "LIBRARY_TEACHER": "Library Teacher"
+          "FROG_TEACHER": "Frog Teacher",
+          "BROADWAY_TEACHER": "Broadway Teacher",
+          "COFFEE_TEACHER": "Coffee Teacher",
+          "BOOK_TEACHER": "Book Teacher"
       },
       "description": "The teacher who sent the anonymous emails.",
       "default": "dramaTeacher",
@@ -70,13 +70,13 @@
       "key": "herring",
       "type": "select",
        "options" : {
-          "MUSIC_TEACHER": "Music Teacher",
-          "DRAMA_TEACHER": "Drama Teacher",
-          "MATH_TEACHER": "Math Teacher",
-          "LIBRARY_TEACHER": "Library Teacher"
+          "FROG_TEACHER": "Frog Teacher",
+          "BROADWAY_TEACHER": "Broadway Teacher",
+          "COFFEE_TEACHER": "Coffee Teacher",
+          "BOOK_TEACHER": "Book Teacher"
       },
       "description": "The teacher who investigated the anonymous emails and initially appears to be the culprit.",
-      "default": "LIBRARY_TEACHER",
+      "default": "BOOK_TEACHER",
       "validation": [
         {
           "type": "unique",
