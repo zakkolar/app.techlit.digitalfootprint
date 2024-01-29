@@ -5,7 +5,6 @@ export const ANONYMOUS_EMAIL_DEFAULTS = Object.freeze({
     COFFEE_TEACHER: 'Coffee Teacher',
     BROADWAY_TEACHER: 'Broadway Teacher',
     FROG_TEACHER: 'Frog Teacher',
-    BOOK_TEACHER: 'Book Teacher',
     CULPRIT: USERS.BROADWAY_TEACHER,
     HERRING: USERS.COFFEE_TEACHER,
     CULPRIT_DISPLAY_NAME: 'Anonymous Penguin',

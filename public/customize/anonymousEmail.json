@@ -25,13 +25,6 @@
       "default": "Coffee Teacher"
     },
     {
-      "label": "Book Teacher Name",
-      "key": "BOOK_TEACHER",
-      "type": "text",
-      "description": "Name of the teacher whose digital footprint shows them getting writer's blog while trying to write a book.",
-      "default": "Book Teacher"
-    },
-    {
       "label": "Broadway Teacher Name",
       "key": "BROADWAY_TEACHER",
       "type": "text",
@@ -52,8 +45,7 @@
       "options" : {
           "FROG_TEACHER": "Frog Teacher",
           "BROADWAY_TEACHER": "Broadway Teacher",
-          "COFFEE_TEACHER": "Coffee Teacher",
-          "BOOK_TEACHER": "Book Teacher"
+          "COFFEE_TEACHER": "Coffee Teacher"
       },
       "description": "The teacher who sent the anonymous emails.",
       "default": "BROADWAY_TEACHER",
@@ -72,11 +64,10 @@
        "options" : {
           "FROG_TEACHER": "Frog Teacher",
           "BROADWAY_TEACHER": "Broadway Teacher",
-          "COFFEE_TEACHER": "Coffee Teacher",
-          "BOOK_TEACHER": "Book Teacher"
+          "COFFEE_TEACHER": "Coffee Teacher"
       },
       "description": "The teacher who investigated the anonymous emails and initially appears to be the culprit.",
-      "default": "BOOK_TEACHER",
+      "default": "COFFEE_TEACHER",
       "validation": [
         {
           "type": "unique",

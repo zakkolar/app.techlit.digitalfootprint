@@ -68,18 +68,3 @@ AnonymousPenguinActivities.push(...[
     new Search("Ways to stay awake without coffee", USERS.COFFEE_TEACHER, "6:36 AM", 0),
     new DriveCreate('Meeting notes', DriveDocument.DOC_TYPES.DOC, USERS.COFFEE_TEACHER, "1:32 PM", 0)
 ])
-
-// Book teacher
-AnonymousPenguinActivities.push(...[
-    new Search("How to write a book ending", USERS.BOOK_TEACHER, "8:05 AM", 0),
-    new Visit("Top 100 book endings", {minutes: 13}, USERS.BOOK_TEACHER, "8:06 AM", 0),
-    new Search("Writer's block", USERS.BOOK_TEACHER, "8:18 AM", 0),
-    new Search("can I use someone else's ending for my book", USERS.BOOK_TEACHER, "8:19 AM", 0),
-    new DriveAdd(`Chapter 23
-    She woke up to a bright, sunny morning`, 'My Book', DriveDocument.DOC_TYPES.DOC, USERS.BOOK_TEACHER, '8:33 AM', 0),
-    new DriveRemove(`bright, sunny morning`, 'My Book', DriveDocument.DOC_TYPES.DOC, USERS.BOOK_TEACHER, "8:34 AM", 0),
-    new DriveAdd(`dark, stormy night`, 'My Book', DriveDocument.DOC_TYPES.DOC, USERS.BOOK_TEACHER, '8:35 AM', 0),
-    new Email('Editor', 'Re: Your book is late',`
-    Hi Avery,
-    I know you wanted to read the ending last week. It's sooooo good and I just need to make a few more edits. I definitely wrote it already.`,USERS.BOOK_TEACHER, '8:46 AM', 0)
-])
