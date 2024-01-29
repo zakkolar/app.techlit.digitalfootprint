@@ -8,31 +8,24 @@ export function anonymousEmailSettingsFromHash() {
 
     const anonymousEmailStore = useAnonymousEmailStore();
 
-    const userTranslations = {
-        'mathTeacher': USERS.MATH_TEACHER,
-        'dramaTeacher': USERS.DRAMA_TEACHER,
-        'musicTeacher': USERS.MUSIC_TEACHER,
-        'libraryTeacher': USERS.LIBRARY_TEACHER
-    }
-
     const culpritKey = paramCache('culprit', 'string', ANONYMOUS_EMAIL_DEFAULTS.CULPRIT);
-    if (Object.keys(userTranslations).includes(culpritKey)) {
-        anonymousEmailStore.culprit = userTranslations[culpritKey];
+    if (Object.keys(USERS).includes(culpritKey)) {
+        anonymousEmailStore.culprit = USERS[culpritKey];
     } else {
         anonymousEmailStore.culprit = ANONYMOUS_EMAIL_DEFAULTS.CULPRIT;
     }
 
     const herringKey = paramCache('herring', 'string', ANONYMOUS_EMAIL_DEFAULTS.HERRING);
-    if (Object.keys(userTranslations).includes(herringKey)) {
-        anonymousEmailStore.herring = userTranslations[herringKey];
+    if (Object.keys(USERS).includes(herringKey)) {
+        anonymousEmailStore.herring = USERS[herringKey];
     } else {
         anonymousEmailStore.herring = ANONYMOUS_EMAIL_DEFAULTS.HERRING;
     }
 
-    anonymousEmailStore.users.MATH_TEACHER = paramCache('mathTeacher', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.MATH_TEACHER);
-    anonymousEmailStore.users.DRAMA_TEACHER = paramCache('dramaTeacher', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.DRAMA_TEACHER);
-    anonymousEmailStore.users.MUSIC_TEACHER = paramCache('musicTeacher', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.MUSIC_TEACHER);
-    anonymousEmailStore.users.LIBRARY_TEACHER = paramCache('libraryTeacher', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.LIBRARY_TEACHER);
+    anonymousEmailStore.users.MATH_TEACHER = paramCache('MATH_TEACHER', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.MATH_TEACHER);
+    anonymousEmailStore.users.DRAMA_TEACHER = paramCache('DRAMA_TEACHER', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.DRAMA_TEACHER);
+    anonymousEmailStore.users.MUSIC_TEACHER = paramCache('MUSIC_TEACHER', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.MUSIC_TEACHER);
+    anonymousEmailStore.users.LIBRARY_TEACHER = paramCache('LIBRARY_TEACHER', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.LIBRARY_TEACHER);
 
     anonymousEmailStore.culpritDisplayName = paramCache('culpritDisplayName', PARAM_TYPES.STRING, ANONYMOUS_EMAIL_DEFAULTS.CULPRIT_DISPLAY_NAME);
 
