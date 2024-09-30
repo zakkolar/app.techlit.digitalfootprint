@@ -15,17 +15,10 @@ export const AnonymousPenguinActivities = [];
 AnonymousPenguinActivities.push(...[
      new Search("frog eggs in basement", USERS.FROG_TEACHER, "6:30 AM", 0),
     new Visit("Frogs in your home? What to do next", {minutes: 10}, USERS.FROG_TEACHER, "6:31 AM",0),
-
-    new Search('take care of baby frogs', USERS.FROG_TEACHER, "7:48 AM", 0),
-    new Visit('Surprisingly expensive pets: Everything you need to know about frog care', {minutes: 5}, USERS.FROG_TEACHER, "7:49 AM", 0),
     new Search('where can i sell 77 baby frogs', USERS.FROG_TEACHER, "7:54 AM", 0),
-
     new Search("Teach frogs to sing", USERS.FROG_TEACHER, "1:06 PM", 0),
-
     new Search("Frog band names", USERS.FROG_TEACHER, "1:10 PM", 0),
-
     new DriveCreate("Frog Band", DriveDocument.DOC_TYPES.DOC, USERS.FROG_TEACHER, "1:05 PM", 0),
-
     new DriveAdd(`Frog songs:
     Jumping on Sunshine
     Froggylicious
