@@ -7,6 +7,7 @@ import {STORIES} from "@/data/global/STORIES";
 import {useGlobalStore} from "@/stores/global";
 import {DEFAULTS} from "@/data/global/DEFAULTS";
 import {anonymousEmailSettingsFromHash} from "@/data/anonymousEmails/settingsFromHash";
+import MovedNotification from "@/components/MovedNotification.vue";
 
 const global = useGlobalStore();
 
@@ -35,6 +36,7 @@ function updateSettingsFromHash() {
 </script>
 
 <template>
+    <moved-notification></moved-notification>
     <header>
         <nav class="sticky inset-0 z-10 block h-max w-full max-w-full rounded-none border border-white/80 bg-white bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4 top-0">
             <div class="flex items-center text-gray-900">
