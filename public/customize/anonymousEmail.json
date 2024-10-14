@@ -53,7 +53,7 @@
       "validation": [
         {
           "type": "unique",
-          "fields": ["herring"]
+          "fields": ["herring", "bystander"]
         }
       ]
     },
@@ -66,12 +66,30 @@
           "BROADWAY_TEACHER": "Broadway Teacher",
           "COFFEE_TEACHER": "Coffee Teacher"
       },
-      "description": "The teacher who investigated the anonymous emails and initially appears to be the culprit.",
+      "description": "The teacher who initially appears to be the culprit, but is revealed to be investigating the anonymous emails.",
       "default": "COFFEE_TEACHER",
       "validation": [
         {
           "type": "unique",
-          "fields": ["culprit"]
+          "fields": ["culprit", "bystander"]
+        }
+      ]
+    },
+    {
+      "label": "Bystander",
+      "key": "bystander",
+      "type": "select",
+       "options" : {
+          "FROG_TEACHER": "Frog Teacher",
+          "BROADWAY_TEACHER": "Broadway Teacher",
+          "COFFEE_TEACHER": "Coffee Teacher"
+      },
+      "description": "The teacher who is not implicated in the anonymous emails. Used to model completing the evidence log.",
+      "default": "FROG_TEACHER",
+      "validation": [
+        {
+          "type": "unique",
+          "fields": ["culprit", "herring"]
         }
       ]
     },
@@ -80,7 +98,7 @@
       "key": "anonymousEmailRecipients",
       "type": "list",
       "description": "List of email addresses the anonymous message is sent to. These will NOT receive actual emails; they will just display on the admin page under 'suspicious emails'.",
-      "default": ["JohnSmith@education.com","JaneDoe@education.com"],
+      "default": ["JohnSmith@school.org","JaneDoe@school.org"],
       "rows": 5
     },
     {
