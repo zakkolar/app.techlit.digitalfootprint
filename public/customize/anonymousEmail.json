@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "preview_link": "https://digitalfootprint.techlit.app/activity/search",
+  "preview_link": "https://digitalfootprint.techlit.tools/activity/search",
   "title": "Digital Footprint Investigation",
   "format": "queryString",
   "description": "In this activity, students investigate their teachers to discover who has been spamming the rest of the school with anonymous emails. Use this form to customize the names of the teachers, the culprit, and other details to make the evidence fit your school.",
