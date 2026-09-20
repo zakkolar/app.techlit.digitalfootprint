@@ -1,6 +1,11 @@
 <template>
-  <div v-if="show" class="redirect-banner">
-    The domain for this app will soon change from techlit.app to techlit.tools. To continue using it, please update your link to: <a :href="newUrl">{{newUrl}}</a> <button @click="acknowledge">x</button>
+  <div v-if="show" class="flex items-start gap-3 border-b border-notice-border bg-notice px-4 py-2 text-sm" role="status">
+    <p class="flex-1">
+      The domain for this app will soon change from techlit.app to techlit.tools. To continue using it, please update your link to: <a class="linkText underline" :href="newUrl">{{newUrl}}</a>
+    </p>
+    <button class="rounded-md p-1 hover:bg-notice-border/40" aria-label="Dismiss notice" @click="acknowledge">
+      <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"/></svg>
+    </button>
   </div>
 </template>
 
@@ -29,19 +34,3 @@ const acknowledge = () => {
 }
 
 </script>
-<style scoped>
-.redirect-banner {
-  padding: 8px 34px 8px 8px;
-  background-color: #ffffa2;
-  position: relative;
-}
-
-.redirect-banner button {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  border: none;
-  width: 24px;
-  text-align: center;
-}
-</style>

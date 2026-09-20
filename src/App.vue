@@ -37,34 +37,26 @@ function updateSettingsFromHash() {
 
 <template>
     <moved-notification></moved-notification>
-    <header>
-        <nav class="sticky inset-0 z-10 block h-max w-full max-w-full rounded-none border border-white/80 bg-white bg-opacity-80 py-2 px-4 text-white shadow-md backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4 top-0">
-            <div class="flex items-center text-gray-900">
-                <span class="mr-4 block cursor-pointer py-1.5 font-sans text-base font-medium leading-relaxed text-inherit antialiased">
-                    Admin Dashboard
-                </span>
-                <div class="ml-auto mr-8  items-center gap-6 flex">
-                    <router-link v-for="(text, routeName) of global.links" class="pb-2" :to="{name: routeName}">{{ text }}</router-link>
-                </div>
+    <header class="sticky top-0 z-10 border-b bg-surface">
+        <nav class="flex flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2" aria-label="Main">
+            <span class="mr-2 font-semibold tracking-tight">Admin dashboard</span>
+            <div class="ml-auto flex flex-wrap justify-end gap-x-6 gap-y-1">
+                <router-link v-for="(text, routeName) of global.links" :key="routeName" :to="{name: routeName}">{{ text }}</router-link>
             </div>
         </nav>
     </header>
 
-    <div class="pa-4">
+    <main class="mx-auto max-w-4xl px-4 pb-16">
         <RouterView/>
-    </div>
+    </main>
 </template>
 
 <style scoped>
-nav li {
-    @apply block p-1 font-sans text-sm font-normal leading-normal text-inherit antialiased;
-}
-
 nav a {
-    @apply flex items-center;
+    @apply rounded-md px-2.5 py-1.5 font-medium text-text-muted hover:bg-surface-muted hover:text-text;
 }
 
-.router-link-exact-active {
-    @apply border-b-2 border-blue-600
+nav a.router-link-exact-active {
+    @apply bg-accent-soft text-accent;
 }
 </style>

@@ -16,7 +16,7 @@ const addOrRemove = computed(()=> {
 </script>
 <template>
     <activity-drive :activity="activity" :verb="addOrRemove">
-            <div class="ml-4 my-4 text-gray-600" :class="{'line-through': props.activity.type === Activity.TYPES.DRIVE_REMOVE, 'italic': props.activity.type === Activity.TYPES.DRIVE_ADD}">
+            <div class="my-3 border-l-2 pl-3 text-text-muted" :class="{'line-through': props.activity.type === Activity.TYPES.DRIVE_REMOVE, 'italic': props.activity.type === Activity.TYPES.DRIVE_ADD}">
                 <p class="pt-1.5 max-w-xl" v-for="p of paragraphs">{{p}}</p>
             </div>
     </activity-drive>

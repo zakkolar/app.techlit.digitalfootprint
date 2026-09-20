@@ -17,22 +17,12 @@ const store = useAnonymousEmailStore();
 <template>
     <activity-base :activity="activity">
 
-        <p>Sent an email to <b>{{store.getName(activity.recipient)}}</b></p>
-            <div class="ml-4 my-4">
-                <table class="max-w-lg">
-                    <tr>
-                        <td class="border p-2">
-                            {{activity.subject}}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="border p-2">
-                            <p class="pt-1" v-for="p of paragraphs" v-html="p"></p>
-                        </td>
-                    </tr>
-                </table>
-
-
+        <p>Sent an email to <b class="font-semibold">{{store.getName(activity.recipient)}}</b></p>
+        <div class="my-3 max-w-xl rounded-md border">
+            <p class="border-b bg-surface-muted px-3 py-2 font-semibold">{{activity.subject}}</p>
+            <div class="px-3 py-2">
+                <p class="pt-1" v-for="p of paragraphs" v-html="p"></p>
             </div>
+        </div>
     </activity-base>
 </template>
