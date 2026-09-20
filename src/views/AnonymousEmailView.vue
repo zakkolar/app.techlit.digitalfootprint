@@ -2,11 +2,11 @@
 import {useAnonymousEmailStore} from "@/stores/anonymousEmail";
 import {AnonymousMessage, AnonymousMessageSubject, AnonymousMessageTime} from "@/data/anonymousEmails/activityLogs/culprit";
 import {CombineDateAndTime} from "@/utils/CombineDateAndTime";
-import {ref} from "vue";
+import {computed} from "vue";
 
 const store = useAnonymousEmailStore();
 
-const date = ref(CombineDateAndTime(store.startDate, AnonymousMessageTime, 0))
+const date = computed(() => CombineDateAndTime(store.startDate, AnonymousMessageTime, 0))
 
 const emailParagraphs = AnonymousMessage.split("\n").filter(item => !!item);
 

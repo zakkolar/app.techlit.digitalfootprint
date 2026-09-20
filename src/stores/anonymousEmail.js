@@ -10,6 +10,7 @@ import {Culprit} from "@/data/anonymousEmails/activityLogs/culprit";
 import {Herring} from "@/data/anonymousEmails/activityLogs/herring";
 import {CombineDateAndTime} from "@/utils/CombineDateAndTime";
 import {ANONYMOUS_EMAIL_DEFAULTS} from "@/data/anonymousEmails/DEFAULTS";
+import {persistedRef, resetPersistedRef} from "@/utils/persistedRef";
 
 export const useAnonymousEmailStore = defineStore('anonymousEmails',()=>{
 
@@ -26,6 +27,13 @@ export const useAnonymousEmailStore = defineStore('anonymousEmails',()=>{
 
     const culpritDisplayName = ref(ANONYMOUS_EMAIL_DEFAULTS.CULPRIT_DISPLAY_NAME);
     const anonymousEmailRecipients = ref(ANONYMOUS_EMAIL_DEFAULTS.ANONYMOUS_EMAIL_RECIPIENTS);
+
+    const PRINT_SELECTION_KEY = 'print.selection';
+    const printSelection = persistedRef(PRINT_SELECTION_KEY, [...ANONYMOUS_EMAIL_DEFAULTS.PRINT_SELECTION]);
+
+    function resetPrintSelection() {
+        resetPersistedRef(PRINT_SELECTION_KEY, printSelection, [...ANONYMOUS_EMAIL_DEFAULTS.PRINT_SELECTION]);
+    }
 
     const activity = computed( ()=> {
         return AnonymousPenguinActivities
@@ -59,6 +67,6 @@ export const useAnonymousEmailStore = defineStore('anonymousEmails',()=>{
 
 
     return {
-        startDate, users, culprit, culpritDisplayName, anonymousEmailRecipients, herring, getName, activity
+        startDate, users, culprit, culpritDisplayName, anonymousEmailRecipients, herring, getName, activity, printSelection, resetPrintSelection
     }
 })

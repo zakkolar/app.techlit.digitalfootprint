@@ -36,8 +36,8 @@ function updateSettingsFromHash() {
 </script>
 
 <template>
-    <moved-notification></moved-notification>
-    <header class="sticky top-0 z-10 border-b bg-surface">
+    <moved-notification class="print:hidden"></moved-notification>
+    <header class="sticky top-0 z-10 border-b bg-surface print:hidden">
         <nav class="flex flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2" aria-label="Main">
             <span class="mr-2 font-semibold tracking-tight">Admin dashboard</span>
             <div class="ml-auto flex flex-wrap justify-end gap-x-6 gap-y-1">
@@ -46,7 +46,7 @@ function updateSettingsFromHash() {
         </nav>
     </header>
 
-    <main class="mx-auto max-w-4xl px-4 pb-16">
+    <main class="mx-auto max-w-4xl px-4 pb-16 print:max-w-none print:p-0">
         <RouterView/>
     </main>
 </template>

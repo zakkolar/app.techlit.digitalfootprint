@@ -1,5 +1,8 @@
 import {createRouter, createWebHistory } from 'vue-router'
 
+// the three per-user activity pages share one view; the route name selects the report
+const userActivityView = () => import('@/views/UserActivityView.vue');
+
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -10,28 +13,27 @@ const router = createRouter({
     {
       path: '/activity/search',
       name: 'activity-search',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/SearchHistoryView.vue')
+      component: userActivityView
     },
     {
       path: '/activity/drive',
       name: 'activity-drive',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('@/views/DriveActivityView.vue')
+      component: userActivityView
     },
     {
       path: '/activity/email',
       name: 'activity-email',
-      component: () => import('@/views/EmailActivityView.vue')
+      component: userActivityView
     },
     {
       path: '/anonymous-email',
       name: 'anonymous-email',
       component: () => import('@/views/AnonymousEmailView.vue')
+    },
+    {
+      path: '/print',
+      name: 'print',
+      component: () => import('@/views/PrintView.vue')
     }
   ]
 })
